@@ -21,10 +21,10 @@ class Command(BaseCommand):
                 print "  searching in letter_dir=%s" % letter_dir
                 for artist_dir in list_subdirs(os.path.join(music_root, letter_dir)):
                     print "    searching artist_dir=%s" % artist_dir
-                    for album_dir in list_subdirs(os.path.join(music_root, artist_dir)):
+                    for album_dir in list_subdirs(os.path.join(music_root, letter_dir, artist_dir)):
                         print "      searching album_dir=%s" % album_dir
 
-                        for f in list_subfiles(os.path.join(music_root, letter_dir, artist_dir)):
+                        for f in list_subfiles(os.path.join(music_root, letter_dir, artist_dir, album_dir)):
                             extension = os.path.splitext(f)[1][1:]
                             print "        adding song at %s with format=%s" %(f, extension)
                             # song = Song(filename=f, format=extension, autoloaded=True)
