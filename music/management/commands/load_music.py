@@ -25,11 +25,12 @@ class Command(BaseCommand):
                         print "      searching album_dir=%s" % album_dir
 
                         for f in list_subfiles(os.path.join(music_root, letter_dir, artist_dir, album_dir)):
+                            name = os.path.splitext(f)[0]
                             extension = os.path.splitext(f)[1][1:]
                             print "        adding song at %s with format=%s" %(f, extension)
                             song = Song(
-                                filename=f,
-                                name=f,
+                                path=os.path.join(letter_dir, artist_dir, album_dir, f),
+                                name=name,
                                 artist=artist_dir,
                                 album=album_dir,
                                 format=extension,autoloaded=True,
