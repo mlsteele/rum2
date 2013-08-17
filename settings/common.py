@@ -154,3 +154,6 @@ LOGGING = {
         },
     }
 }
+
+
+MUSIC_ROOT = "/pants/NewMusic"
