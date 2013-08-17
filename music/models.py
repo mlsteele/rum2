@@ -14,4 +14,4 @@ class Song(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return "Song '{}'".format(self.name)
+        return self.path
