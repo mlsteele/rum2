@@ -5,6 +5,8 @@ MUSIC_ROOT = settings.MUSIC_ROOT
 
 class Song(models.Model):
     name       = models.CharField(max_length=255)
+    artist     = models.CharField(max_length=255)
+    album      = models.CharField(max_length=255)
     path       = models.CharField(max_length=255, unique=True) # path relative to MUSIC_ROOT to song file
     format     = models.CharField(max_length=255)
 

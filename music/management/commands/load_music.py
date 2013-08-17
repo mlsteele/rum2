@@ -27,10 +27,19 @@ class Command(BaseCommand):
                         for f in list_subfiles(os.path.join(music_root, letter_dir, artist_dir, album_dir)):
                             extension = os.path.splitext(f)[1][1:]
                             print "        adding song at %s with format=%s" %(f, extension)
-                            # song = Song(filename=f, format=extension, autoloaded=True)
-                            # song.save()
+                            song = Song(
+                                filename=f,
+                                name=f,
+                                artist=artist_dir,
+                                album=album_dir,
+                                format=extension,autoloaded=True,
+                            )
+                            song.save()
                             print "        saving song..."
 
             print "-- Done with music!"
 
-        load_music_dir(args[0])
+        if len(args) is 1:
+            load_music_dir(args[0])
+        else:
+            print "Usage: load_music <music_root>"
