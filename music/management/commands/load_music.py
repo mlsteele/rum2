@@ -3,6 +3,7 @@ from music.models import Song
 
 import os, string
 
+
 class Command(BaseCommand):
     args = '<music_root_path>'
     help = 'Loads music from files'
